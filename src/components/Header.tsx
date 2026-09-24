@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useState } from "react";
-import { navLinks } from "@/lib/navigation";
+import { assetPath, navLinks } from "@/lib/navigation";
 import { ButtonLink, Container } from "./ui";
 
 export function Header() {
-  const pathname = usePathname();
+  const pathname = usePathname().replace(/(.)\/$/, "$1");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = useCallback(() => setMenuOpen((open) => !open), []);
@@ -19,7 +19,7 @@ export function Header() {
       <Container className="flex h-20 items-center justify-between gap-8">
         <Link href="/" onClick={closeMenu} className="shrink-0">
           <Image
-            src="/maiwa-logo.png"
+            src={assetPath("/maiwa-logo.png")}
             alt="Maiwa Recruitment"
             width={1557}
             height={451}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { navLinks } from "@/lib/navigation";
+import { assetPath, navLinks } from "@/lib/navigation";
 import { Container } from "./ui";
 
 export function Footer() {
@@ -9,7 +9,7 @@ export function Footer() {
       <Container className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Image
-            src="/maiwa-logo-light.png"
+            src={assetPath("/maiwa-logo-light.png")}
             alt="Maiwa Recruitment"
             width={1557}
             height={451}
